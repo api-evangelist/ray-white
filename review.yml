@@ -1,0 +1,304 @@
+aid: ray-white
+name: Ray White
+review:
+  question: Does Ray White publish a public, machine-readable API surface — and what
+    is its RESO posture as an Australian brokerage?
+  answer: false
+  date: '2026-07-26'
+  reviewer: API Evangelist
+  tier: brokerage
+  homeMarket: Australia
+  specsHarvested: 0
+  openapiHarvested: false
+
+sector:
+  homeMarket: Australia
+  valueChainPosition: |
+    Ray White is a BROKERAGE / agency network. It sits downstream of the
+    Australian portal duopoly (REA Group's realestate.com.au and Domain) as a
+    LISTER into those portals, not as an operator of one. It is downstream of
+    state land registries (progressively privatised — NSW LRS, Victoria's
+    Landata/Secure Title, etc.) and it transacts across PEXA, the electronic
+    conveyancing network that settles the overwhelming majority of Australian
+    property transactions and is effectively mandated in most states. Valuation
+    data reaches Ray White from PropTrack (REA-owned) and CoreLogic under
+    commercial licence — it does not originate valuation data itself.
+  apiRole: consumer
+  apiRoleEvidence: |
+    Ray White's own December 2025 announcement makes the consumer posture
+    explicit. Verbatim, from
+    https://www.raywhite.com/news-and-market-insights/news-media/ray-white-and-rea-group-announce-landmark-partnership
+    (HTTP 200, fetched 2026-07-26): "We chose realestate.com.au and PropTrack as
+    our data partners because their unmatched market insights, industry leading
+    API architecture, combined with our tech stack, will help propel the growth
+    of our 550+ Australian offices." Ray White consumes those licensed APIs into
+    its proprietary OneSystem, NurtureCloud and Pulse platforms. It publishes no
+    API of its own.
+
+resoPosture:
+  summary: No RESO reference found — RESO is absent from Ray White entirely, as
+    expected for an Australian brokerage with no NAR/MLS relationship.
+  certified: false
+  certificationType: none
+  dataDictionaryVersion: null
+  webApiCertified: false
+  upiPresent: false
+  odataMetadataFound: false
+  directoryEvidence: |
+    The RESO certification directory at https://www.reso.org/certificates/ was
+    fetched anonymously on 2026-07-26 (HTTP 200, 416,233 bytes). The page is
+    server-rendered and contains the complete Certified Current / Passed Current
+    / Certified Legacy list across all four RESO sections (Data Providers, MLS,
+    Pooled Platform, Technology Company, Commercial Brokerage), each entry
+    carrying a UOI and a https://certification.reso.org/summary/<UOI> link. A
+    case-insensitive grep for "ray[ -]?white" returned ZERO matches. A grep for
+    "australia|australian" also returned ZERO matches — the directory is
+    effectively North American. Ray White is therefore not RESO certified under
+    any section, and no RESO Universal Property Identifier (UPI) is associated
+    with it.
+  whyAbsent: |
+    RESO certification is mandated by the National Association of REALTORS (NAR)
+    for US MLSs and adopted by North American data providers and technology
+    vendors. Australia has no MLS system and no NAR — listings flow agent →
+    portal (realestate.com.au / Domain) via REAXML-style feeds under commercial
+    agreements, not via a certified, standardised Web API. The honest finding for
+    every Australian brokerage in this study is that RESO is simply not part of
+    the market's architecture. The closest Australian analogue to a REQUIRED,
+    national, machine-readable property rail is PEXA electronic conveyancing —
+    but PEXA is a settlement network Ray White participates in, not a contract
+    Ray White publishes.
+  odataProbes:
+  - url: https://www.raywhite.com/$metadata
+    status: 404
+  - url: https://www.raywhite.com/api-docs
+    status: 404
+
+accessGate:
+  gate: none-published
+  gated: true
+  whatADeveloperMustSignOrJoin: |
+    Nothing is published, because there is nothing published to apply for. Ray
+    White operates no developer programme, no partner-API application form, no
+    API terms of service, and no data-licence page. A third party wanting Ray
+    White listing or CRM data has no documented self-serve, application-approval,
+    or licence path — the only route evidenced anywhere is a bilateral
+    commercial arrangement of the kind Ray White itself struck with REA
+    Group/PropTrack (and previously PropTech Group), negotiated company to
+    company. Ray White's internal platforms (OneSystem, NurtureCloud, Pulse) are
+    franchise-network tooling for its own principals and agents; NurtureCloud's
+    public site (https://nurturecloud.com/, HTTP 200) names no API, no developer
+    documentation and no integration surface, listing only iOS/Android apps and
+    a nurturecloud@raywhite.com support address.
+  distinctionFromCertification: |
+    This provider is the inverse of the RESO trap the study is built to catch. In
+    the US the danger is reading a RESO certificate as reachability. Here there
+    is neither a certificate NOR a reachable endpoint — no contract is claimed
+    and none exists, which is at least internally consistent and honestly
+    reported as such.
+
+openData:
+  present: false
+  notes: |
+    Ray White publishes no open dataset. Its property listings, agent directory
+    and market commentary (the White Report, economic updates) are HTML pages on
+    raywhite.com under ordinary site terms, not an open-licensed, callable
+    dataset. Australia's open-data counterweight in property sits with government
+    (state land registry products, data.gov.au, ABS/PEXA statistical releases)
+    and not with brokerages. Nothing under raywhite.com meets the bar for
+    open_data.
+
+authModel:
+  scheme: none-published
+  oidcDiscovery:
+    url: https://www.raywhite.com/.well-known/openid-configuration
+    status: 404
+    served: false
+  notes: |
+    No API key programme, no OAuth 2.0 authorization server, no OpenID Connect
+    discovery document, and no documented SAML federation to a member portal
+    could be found on the public web properties. Agent/principal sign-in to the
+    OneSystem/NurtureCloud stack happens behind franchise-network credentials
+    that are not documented publicly and were not probed.
+
+webhooksEventsSdksPostman:
+  webhooks: false
+  events: false
+  sdks: false
+  postman: false
+  notes: |
+    Absence across the board is the finding. No webhook catalogue, no event
+    stream, no first-party SDK in any language, no published Postman workspace
+    or collection. The GitHub organisation https://github.com/raywhite (HTTP 200,
+    login "raywhite", name "Ray White", location "Australia", blog
+    "https://raywhite.com", created 2016-03-18, 9 public repos, unverified)
+    is plausibly the group's engineering org but contains no first-party API
+    artifacts — 6 of 9 repos are forks of third-party projects (PhlyRestfully,
+    MssqlBundle, xpmock, splunk-aws-serverless-apps, terraform-aws-glue,
+    dbt-bigquery) and the 3 non-forks are generic utilities (pico-dom,
+    async-hofs, dotfiles_macos). No OpenAPI, no AsyncAPI, no spec repo.
+
+productApiFamily:
+  notes: |
+    Ray White's real product segmentation is business-line, not API-line, because
+    no API line exists. Recorded faithfully as business capability only, with NO
+    implied endpoints — listings/search (residential, commercial via
+    rwc.com.au / raywhitecommercial.com, rural and livestock, marine, projects,
+    hotels via HTL Property), auctions (Auctions Live online auction portal at
+    https://auctionslive.com/, HTTP 200), property management and tenancy,
+    valuations, business sales, insurance, and mortgage broking via sister brand
+    Loan Market (https://www.loanmarket.com.au/, HTTP 200). None of these is
+    exposed as a documented API.
+
+probes:
+  date: '2026-07-26'
+  method: anonymous curl, follow-redirects, desktop Chrome User-Agent
+  note: |
+    An initial pass with the default curl User-Agent returned HTTP 403 for every
+    raywhite.com path including /robots.txt — the site fronts an edge that blocks
+    non-browser agents. All results below were re-run with a desktop Chrome
+    User-Agent, which is what the recorded statuses reflect. Status 000 means DNS
+    did not resolve / no TLS connection was established.
+  results:
+  - url: https://www.raywhite.com/
+    status: 200
+  - url: https://raywhite.com/
+    status: 200
+    note: default UA returned 403; browser UA 200
+  - url: https://www.raywhite.com/robots.txt
+    status: 200
+    note: 'declares sitemap https://www.raywhite.com/sitemaps-1-sitemap.xml; disallows
+      only /cpresources/, /vendor/, /.env, /index.php/actions/, /actions/'
+  - url: https://www.raywhite.com/sitemaps-1-sitemap.xml
+    status: 200
+    note: 29 child sitemaps (businesses, economicUpdates, homepage, landingPages,
+      lifestyle, listingAgent, listingOffice, listingProperties, miscPages,
+      newsMedia, people, rayWhiteNow, search, sitemap, whiteReport). No developer,
+      api, docs, integration or partner section exists anywhere in the sitemap tree.
+  - url: https://developer.raywhite.com/
+    status: 000
+    note: does not resolve
+  - url: https://developers.raywhite.com/
+    status: 000
+    note: does not resolve
+  - url: https://api.raywhite.com/
+    status: 000
+    note: does not resolve
+  - url: https://docs.raywhite.com/
+    status: 000
+    note: does not resolve
+  - url: https://www.raywhite.com/developers
+    status: 404
+  - url: https://www.raywhite.com/api
+    status: 404
+  - url: https://www.raywhite.com/docs
+    status: 404
+  - url: https://www.raywhite.com/openapi.json
+    status: 404
+  - url: https://www.raywhite.com/swagger.json
+    status: 404
+  - url: https://www.raywhite.com/api-docs
+    status: 404
+  - url: https://www.raywhite.com/$metadata
+    status: 404
+  - url: https://www.raywhite.com/.well-known/openid-configuration
+    status: 404
+  - url: https://www.raywhite.com/about-us
+    status: 200
+  - url: https://www.raywhite.com/news-and-market-insights/news-media
+    status: 200
+  - url: https://www.raywhite.com/news-and-market-insights/news-media/ray-white-and-rea-group-announce-landmark-partnership
+    status: 200
+  - url: https://www.raywhite.com/join-the-family/become-a-business-owner/nurture-cloud
+    status: 200
+  - url: https://nurturecloud.com/
+    status: 200
+    note: no API, developer or integration reference on the page
+  - url: https://nurturecloud.com/sitemap.xml
+    status: 200
+    note: five URLs total (home, privacy-policy, terms-and-conditions, about, careers)
+  - url: https://nurturecloud.com/openapi.json
+    status: 404
+  - url: https://nurturecloud.com/.well-known/openid-configuration
+    status: 404
+  - url: https://developer.nurturecloud.com/
+    status: 000
+  - url: https://api.nurturecloud.com/
+    status: 000
+  - url: https://rwc.com.au/
+    status: 200
+    note: Ray White Commercial; only external API reference in page source is
+      fonts.googleapis.com
+  - url: https://raywhitecommercial.com/
+    status: 200
+  - url: https://auctionslive.com/
+    status: 200
+  - url: https://www.loanmarket.com.au/
+    status: 200
+  - url: https://github.com/raywhite
+    status: 200
+  - url: https://api.github.com/orgs/raywhite
+    status: 200
+  - url: https://www.linkedin.com/company/raywhitegroup
+    status: 200
+  - url: https://www.reso.org/certificates/
+    status: 200
+    note: full RESO certification directory; zero matches for "Ray White"
+  - url: https://www.reso.org/certification/
+    status: 200
+  - url: https://certification.reso.org/
+    status: 400
+
+homonymTrap:
+  warning: |
+    "Ray White" is also the name of multiple individual licensed real estate
+    agents in the United States (Keller Williams Baytown TX, HAR.com Houston,
+    RE/MAX, 1st USA Realty, an "Ray White Atlanta Sales" LinkedIn profile). Those
+    individuals ARE MLS members and would appear behind RESO-certified MLS
+    feeds — none of that has anything to do with Ray White Group of Australia.
+    Any future RESO or MLS signal matched on the string "Ray White" must be
+    rejected unless it resolves to raywhite.com / Ray White Group Pty Ltd.
+
+sources:
+- url: https://www.raywhite.com/
+  type: Website
+  note: Group homepage; business lines and brand list. HTTP 200.
+- url: https://www.raywhite.com/news-and-market-insights/news-media/ray-white-and-rea-group-announce-landmark-partnership
+  type: Announcement
+  note: 'Dated 1 December 2025. Source of the "industry leading API architecture"
+    quote and the 550+ Australian offices figure. Establishes API-consumer posture.'
+- url: https://nurturecloud.com/
+  type: Website
+  note: NurtureCloud product site. No API/developer/integration surface named.
+- url: https://www.reso.org/certificates/
+  type: Certification Directory
+  note: Complete RESO certification status list. No Ray White entry; no Australian
+    entries.
+- url: https://github.com/raywhite
+  type: GitHubOrganization
+  note: 9 public repos, mostly forks, no first-party API artifacts.
+- url: https://www.raywhite.com/robots.txt
+  type: Robots
+  note: Sitemap declaration used to enumerate the whole site; no developer section.
+
+findings:
+  summary: |
+    Ray White is a BUILT-STUB. It is a large, real, consequential real estate
+    organisation with a genuinely sophisticated internal technology stack and
+    zero public API surface. Every developer-facing probe failed: four developer
+    subdomains do not resolve, seven conventional contract paths return 404, and
+    the site's own sitemap — which enumerates every section of raywhite.com —
+    contains no developer, api, docs, integration or partner area at all. There
+    is no OpenAPI, no OData $metadata, no GraphQL, no AsyncAPI, no SDK, no
+    Postman collection, no webhook catalogue and no OIDC discovery document.
+    RESO is entirely absent and Ray White does not appear in the RESO
+    certification directory, which is the correct and expected answer for an
+    Australian brokerage. The single most important characterisation is that Ray
+    White is an API CONSUMER — it buys licensed API access from REA
+    Group/PropTrack and pipes it into OneSystem, NurtureCloud and Pulse — and
+    publishes nothing back. The access gate is therefore none-published: there
+    is no form to fill, no association to join, no licence to sign, because no
+    access path is offered.
+  status: built-stub
+  apisListed: 0
+  developerPortal: ''
+  portalConfirmed: false
