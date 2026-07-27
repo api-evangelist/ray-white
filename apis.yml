@@ -43,6 +43,10 @@ modified: '2026-07-26'
 specificationVersion: '0.19'
 apis: []
 common:
+- type: VulnerabilityDisclosure
+  url: security/ray-white-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/ray-white-domain-security.yml
 - type: Website
   url: https://www.raywhite.com/
 - type: About
@@ -53,8 +57,40 @@ common:
   url: https://www.linkedin.com/company/raywhitegroup
 - type: GitHubOrganization
   url: https://github.com/raywhite
-- type: Documentation
+- type: Press
+  name: Ray White and REA Group announce landmark partnership
   url: https://www.raywhite.com/news-and-market-insights/news-media/ray-white-and-rea-group-announce-landmark-partnership
+  description: December 2025 announcement naming realestate.com.au and PropTrack as
+    Ray White's data partners for their "industry leading API architecture" — the
+    evidence for Ray White's API-consumer posture. Retyped from Documentation in the
+    2026-07-26 enrichment round; it is a press release, not developer documentation,
+    and Ray White publishes no API documentation.
+- type: SecurityTxt
+  name: security.txt
+  url: well-known/ray-white-security.txt
+- type: WellKnown
+  name: Well-known probe index
+  url: well-known/ray-white-well-known.yml
+- type: Security
+  name: Security disclosure contact (security.txt)
+  url: https://www.raywhite.com/.well-known/security.txt
+- type: Packages
+  name: Published packages (@raywhite, @nurturecloud npm scopes)
+  url: packages/ray-white-packages.yml
+  description: Front-end utilities and re-published forks only — no API client SDK
+    exists, so no SDKs pointer is emitted.
+- type: LLMsTxt
+  name: llms.txt
+  url: llms/ray-white-llms.txt
+- type: Support
+  url: https://www.raywhite.com/contact
+- type: PrivacyPolicy
+  url: https://www.raywhite.com/contact/privacy-policy
+- type: TermsOfService
+  name: Legal information
+  url: https://www.raywhite.com/contact/legal-information
+- type: Careers
+  url: https://www.raywhite.com/property-experts/ray-white-careers
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

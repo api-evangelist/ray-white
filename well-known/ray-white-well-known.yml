@@ -1,0 +1,82 @@
+generated: '2026-07-26'
+method: searched
+source: live anonymous probes of the /.well-known/ surface on every Ray White web host
+note: |
+  Ray White publishes no API, so there is no API host to probe — the hosts below
+  are the group's public web properties (see review.yml). All probes were run
+  with a desktop Chrome User-Agent; the edge in front of raywhite.com returns 403
+  to default curl User-Agents. The one real hit is an RFC 9116 security.txt on
+  www.raywhite.com, saved verbatim as ray-white-security.txt. Note that the
+  Policy, Encryption and Acknowledgements URLs that file declares all return 404
+  as of this probe, and its Expiration date (2026-07-27) is one day away — the
+  document is real but stale/partially unresolvable.
+hosts:
+- host: https://www.raywhite.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    file: ray-white-security.txt
+    format: RFC 9116
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/oauth-protected-resource
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/change-password
+    status: 404
+  - path: /.well-known/dnt-policy.txt
+    status: 404
+  - path: /.well-known/apple-app-site-association
+    status: 404
+  - path: /.well-known/assetlinks.json
+    status: 404
+  - path: /security.txt
+    status: 404
+  - path: /humans.txt
+    status: 200
+    note: Craft CMS credits file naming Simple Integrated Marketing as the site builder
+  - path: /robots.txt
+    status: 200
+  - path: /llms.txt
+    status: 404
+- host: https://rwc.com.au
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: https://nurturecloud.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+- host: https://auctionslive.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+declared_but_unresolvable:
+- url: https://www.raywhite.com/security-policy
+  status: 404
+  declared_in: security.txt Policy
+- url: https://www.raywhite.com/pgp-key.txt
+  status: 404
+  declared_in: security.txt Encryption
+- url: https://www.raywhite.com/hall-of-fame
+  status: 404
+  declared_in: security.txt Acknowledgements

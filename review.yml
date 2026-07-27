@@ -247,6 +247,82 @@ probes:
     status: 200
   - url: https://certification.reso.org/
     status: 400
+  - url: https://www.raywhite.com/.well-known/security.txt
+    status: 200
+    round: enrichment 2026-07-26
+    note: 'REAL RFC 9116 security.txt — the single machine-readable document Ray
+      White publishes. Contact: web@simple.com.au (Simple Integrated Marketing, the
+      agency that builds raywhite.com). Its declared Policy, Encryption and
+      Acknowledgements URLs all 404, and its Expiration is 2026-07-27. Captured
+      verbatim to well-known/ray-white-security.txt.'
+  - url: https://www.raywhite.com/security-policy
+    status: 404
+    round: enrichment 2026-07-26
+    note: declared as Policy in security.txt but not published
+  - url: https://www.raywhite.com/pgp-key.txt
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/hall-of-fame
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/.well-known/api-catalog
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/.well-known/oauth-authorization-server
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/.well-known/oauth-protected-resource
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/.well-known/ai-plugin.json
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/llms.txt
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/openapi.yaml
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/graphql
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/humans.txt
+    status: 200
+    round: enrichment 2026-07-26
+    note: Craft CMS credits file; names Simple Integrated Marketing as site builder
+  - url: https://www.raywhite.com/contact/privacy-policy
+    status: 200
+    round: enrichment 2026-07-26
+  - url: https://www.raywhite.com/contact/legal-information
+    status: 200
+    round: enrichment 2026-07-26
+    note: site disclaimer; the closest thing Ray White publishes to terms of use
+  - url: https://www.raywhite.com/contact
+    status: 200
+    round: enrichment 2026-07-26
+  - url: https://status.raywhite.com/
+    status: 000
+    round: enrichment 2026-07-26
+    note: no status page; does not resolve
+  - url: https://rwc.com.au/.well-known/security.txt
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://rwc.com.au/openapi.json
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://nurturecloud.com/.well-known/security.txt
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://auctionslive.com/openapi.json
+    status: 404
+    round: enrichment 2026-07-26
+  - url: https://registry.npmjs.org/-/v1/search?text=%40raywhite
+    status: 200
+    round: enrichment 2026-07-26
+    note: 'two first-party packages in the @raywhite npm scope (async-hofs, workflow)
+      plus three in @nurturecloud — all front-end utilities or re-published forks of
+      third-party libraries; no API client SDK. PyPI, RubyGems, Packagist, crates.io,
+      Maven Central, NuGet and pkg.go.dev returned nothing.'
 
 homonymTrap:
   warning: |

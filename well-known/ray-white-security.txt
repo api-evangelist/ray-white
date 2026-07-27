@@ -1,0 +1,15 @@
+# security.txt file for https://www.raywhite.com/ - more info: https://securitytxt.org/
+# (required) Contact email address for security issues
+Contact: web@simple.com.au
+
+# (required) Expiration date for the security information herein
+Expiration: 2026-07-27T11:08:04+09:30
+
+# (optional) OpenPGP key:
+Encryption: https://www.raywhite.com/pgp-key.txt
+
+# (optional) Security policy page:
+Policy: https://www.raywhite.com/security-policy
+
+# (optional) Security acknowledgements page:
+Acknowledgements: https://www.raywhite.com/hall-of-fame

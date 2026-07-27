@@ -1,0 +1,80 @@
+generated: '2026-07-26'
+method: searched
+source: npm registry search (@raywhite, @nurturecloud scopes), PyPI, RubyGems, Packagist, crates.io
+summary:
+  api_client_sdks: 0
+  first_party_packages: 5
+  note: |
+    Ray White publishes NO API and therefore ships NO API client SDK in any
+    language. What does exist on npm are two first-party scopes — @raywhite
+    (the group's GitHub org, github.com/raywhite) and @nurturecloud (its
+    proprietary agent platform, previously Upside Realty) — carrying generic
+    front-end/utility libraries and re-published forks of third-party packages.
+    They are catalogued here for completeness and provenance; none of them is a
+    client library for a Ray White API, so no `SDKs` pointer is emitted in
+    apis.yml (emitting one would misrepresent the provider's SDK posture).
+registries_probed:
+- registry: npm
+  result: 5 packages across the @raywhite and @nurturecloud scopes
+- registry: pypi
+  result: no raywhite / ray-white / nurturecloud project (404)
+- registry: rubygems
+  result: no raywhite gem (404)
+- registry: packagist
+  result: no Ray White vendor namespace
+- registry: crates.io
+  result: no Ray White crate
+- registry: maven-central
+  result: no Ray White group id found
+- registry: nuget
+  result: no Ray White package found
+- registry: pkg.go.dev
+  result: no Ray White module found
+packages:
+- language: javascript
+  registry: npm
+  name: "@raywhite/async-hofs"
+  version: 3.0.0
+  url: https://www.npmjs.com/package/@raywhite/async-hofs
+  repository: https://github.com/raywhite/async-hofs
+  install: npm install @raywhite/async-hofs
+  official: true
+  api_client: false
+  description: Async / Promise related higher order functions and utils
+- language: javascript
+  registry: npm
+  name: "@raywhite/workflow"
+  version: 0.0.1
+  url: https://www.npmjs.com/package/@raywhite/workflow
+  install: npm install @raywhite/workflow
+  official: true
+  api_client: false
+  description: A DSL for controlling async workflows (last published 2019)
+- language: javascript
+  registry: npm
+  name: "@nurturecloud/ngx-lightbox"
+  version: 2.0.1
+  url: https://www.npmjs.com/package/@nurturecloud/ngx-lightbox
+  repository: https://github.com/upsiderealty/ngx-lightbox
+  install: npm install @nurturecloud/ngx-lightbox
+  official: true
+  api_client: false
+  description: Scoped re-publish of a third-party Angular lightbox port
+- language: javascript
+  registry: npm
+  name: "@nurturecloud/flexboxgrid"
+  version: 6.3.2
+  url: https://www.npmjs.com/package/@nurturecloud/flexboxgrid
+  install: npm install @nurturecloud/flexboxgrid
+  official: true
+  api_client: false
+  description: Scoped re-publish of the third-party flexboxgrid CSS grid
+- language: javascript
+  registry: npm
+  name: "@nurturecloud/html-loader"
+  version: 0.5.2
+  url: https://www.npmjs.com/package/@nurturecloud/html-loader
+  install: npm install @nurturecloud/html-loader
+  official: true
+  api_client: false
+  description: Scoped re-publish of the webpack html-loader

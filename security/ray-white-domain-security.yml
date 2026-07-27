@@ -1,0 +1,64 @@
+generated: '2026-07-26'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + review.yml hosts
+note: |
+  Ray White operates no API host, so these are the group's public web properties.
+  The raywhite.com edge (CloudFront + nginx + Craft CMS) returns 403 to default
+  curl User-Agents; the HSTS reading below was taken with a desktop Chrome
+  User-Agent, which is why it corrects the automated probe's null. DMARC for
+  rwc.com.au and nurturecloud.com is delegated via CNAME to Proofpoint
+  (_dmarc.<domain>.dmarc.has.pphosted.com) and resolves to p=reject.
+hosts:
+- host: www.raywhite.com
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Nov  4 23:59:59 2026 GMT
+  hsts: true
+  hsts_max_age: 31536000
+  hsts_include_subdomains: true
+  edge: CloudFront + nginx (Craft CMS)
+- host: rwc.com.au
+  https: true
+  tls_version: TLSv1.3
+  hsts: false
+  note: Ray White Commercial; HTTP 301 to canonical then 200
+- host: nurturecloud.com
+  https: true
+  tls_version: TLSv1.3
+  hsts: true
+  hsts_max_age: 15552000
+  hsts_include_subdomains: true
+  note: NurtureCloud, the group's proprietary agent platform
+- host: auctionslive.com
+  https: true
+  tls_version: TLSv1.3
+  hsts: false
+domains:
+- domain: raywhite.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+- domain: rwc.com.au
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 include:%{ir}.%{v}.%{d}.spf.has.pphosted.com ~all
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_delegated: _dmarc.rwc.com.au.dmarc.has.pphosted.com
+- domain: nurturecloud.com
+  dnssec: false
+  caa: []
+  spf: true
+  dmarc: true
+  dmarc_policy: reject
+  dmarc_delegated: _dmarc.nurturecloud.com.dmarc.has.pphosted.com
+- domain: auctionslive.com
+  dnssec: false
+  caa: []
+  spf: true
+  spf_record: v=spf1 a mx include:_spf.mlsend.com ?all
+  dmarc: false
+  dmarc_policy: null
