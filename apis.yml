@@ -1,5 +1,8 @@
 aid: ray-white
 url: https://raw.githubusercontent.com/api-evangelist/ray-white/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: "Its API posture is therefore honestly stated as none-published — as of 2026-07-26 no developer portal, no public API documentation, no OpenAPI or OData $metadata contract, and no published partner-API"
 name: Ray White
 kind: company
 description: Ray White is Australasia's largest real estate group, a family-owned
