@@ -35,7 +35,7 @@ imageNote: >-
   No correct icon has been sourced yet. Shipping the wrong company's mark is worse
   than shipping none; re-run the icon backfill once a real asset exists.
 tags:
-- Real-Estate
+- Real Estate
 - Australia
 - Brokerage
 - Property Listings
@@ -60,6 +60,7 @@ tags_raw:
 - PropTech
 - Conveyancing
 - Mortgage
+- Real-Estate
 deliveryModel:
   model: saas
   open_source: false
