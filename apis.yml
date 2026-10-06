@@ -85,10 +85,12 @@ accessModel:
   generated: '2026-09-02'
   method: derived
 created: '2026-07-26'
-modified: '2026-07-26'
+modified: '2026-10-06'
 specificationVersion: '0.23'
 apis: []
 common:
+- url: https://www.raywhite.com/rss/news
+  type: BlogRSS
 - type: VulnerabilityDisclosure
   url: security/ray-white-vulnerability-disclosure.yml
 - type: DomainSecurity
